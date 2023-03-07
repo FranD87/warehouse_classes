@@ -6,20 +6,23 @@ from data import stock
 # ''' Stock classes'''
 
 class Warehouse:
+
+    stock = []
     def __init__(self, warehouse_id: int):
         self.warehouse_id = warehouse_id
 
 
+
+
     def occupancy(self):
-        pass
+
+        return len(self.stock)
 
     def add_item(self, item):
 
-        new_stock = []
+        self.stock.append(item)
 
-        for i in stock:
-            items = stock(i["state"], i["category"])
-            new_stock.append(items)
+
     def search(self, search_item: str):
         pass
 
