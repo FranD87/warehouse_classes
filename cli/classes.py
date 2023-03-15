@@ -71,23 +71,25 @@ class User:
     def greet(self):
         return f"Hello, {self._name}\nWelcome to our Warehouse Database.\nIf you don't find what you are looking for, please ask one of our staff members to assist you."
 
-    def bye(self, actions: list):
+    def bye(self, actions= None):
         return f"Goodbye {self._name}"
+
+#
+
 
 class Employee(User):
 
 
-    def __init__(self, password: str, head_of):
-        employee_list = []
+    def __init__(self, user_name, password: str, head_of=[]):
+
         self.__password = password
         self.head_of = head_of
-        if self.head_of in employee_list:
-            print(self.head_of)
 
-        super().__init__(self._name)
 
-    def authenticate(self, password: str):
-        if password == self.__password:
+        super().__init__(user_name)
+
+    def authenticate(self, password_aut: str):
+        if password_aut == self.__password:
             return True
         return False
 
@@ -97,9 +99,11 @@ class Employee(User):
     def greet(self):
         print(f"Hello, {self._name}!\nIf you experience a problem with the system, please contact technical support.")
 
-    def bye(self, actions: list):
+    def bye(self, actions: list=[]):
+
         print(f"Thank you {self._name}")
-        return actions
+        for i in actions:
+            print(i)
     
 
 
