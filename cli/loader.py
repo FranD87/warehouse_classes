@@ -2,6 +2,7 @@
 
 from data import personnel as employees
 from data import stock as items
+from classes import Warehouse, Item, User, Employee
 
 
 class MissingClassError(Exception):

@@ -28,7 +28,7 @@ As usual, you will start with the traditional refactoring, this time into classe
 1. Transform the original dictionary-based data set into the new class-based data set.
 1. Refactor the original `query.py` file to accommodate the new class-based data structure.
    
-   An experienced developer will require some time to do all of this, and you may chose to do so as well, but the exercise provides you with a solution for the first and third steps that will help you concentrate on the most important parts of the topics covered.
+   An experienced developer will require some time to do all of this, and you may choose to do so as well, but the exercise provides you with a solution for the first and third steps that will help you concentrate on the most important parts of the topics covered.
    
 ### 1. Classes
 
