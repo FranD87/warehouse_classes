@@ -42,7 +42,7 @@ class Loader:
 
     def __load_class(self, name):
         """Return a class."""
-        classes = __import__("cli")
+        classes = __import__("classes")
         if not hasattr(classes, name):
             raise MissingClassError(name)
         return getattr(classes, name)
