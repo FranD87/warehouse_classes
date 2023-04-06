@@ -126,7 +126,7 @@ def display_categories(stock, key2):
         categories.append(item[key2])
     cat_counter = Counter(categories)
     category_dict = {}
-    for index,(key,value) in enumerate(cat_counter.items(),1):
+    for index, (key, value) in enumerate(cat_counter.items(), 1):
         print(f'{index}. {key} ({value})')
         category_dict[index] = key
     return category_dict

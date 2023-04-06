@@ -27,9 +27,9 @@ As usual, you will start with the traditional refactoring, this time into classe
 1. Implement the classes in Python.
 1. Transform the original dictionary-based data set into the new class-based data set.
 1. Refactor the original `query.py` file to accommodate the new class-based data structure.
-   
-   An experienced developer will require some time to do all of this, and you may choose to do so as well, but the exercise provides you with a solution for the first and third steps that will help you concentrate on the most important parts of the topics covered.
-   
+
+An experienced developer will require some time to do all of this, and you may chose to do so as well, but the exercise provides you with a solution for the first and third steps that will help you concentrate on the most important parts of the topics covered.
+
 ### 1. Classes
 
 You will define classes for the two main data domains of the tool: stock and personnel.
@@ -222,4 +222,45 @@ from loader import Loader
 stock = Loader(model="stock")
 ```
 
-The variable names `personnel` and `stock` will be class instances, instead of li...
+The variable names `personnel` and `stock` will be class instances, instead of lists, but they are iterable objects and you can treat them as lists to, for instance, iterate the contents:
+
+```
+for employee in personnel:
+    print(employee)
+```
+
+Or print the amount of warehouses:
+
+```
+print(len(list(stock)))
+```
+
+### 4. Refactoring
+
+The first step is to load the new data sets using the [Loader class](sample/loader.py) that you should have copied into your `cli` directory.
+
+If you are only doing the stock first, load only the stock as indicated previously:
+
+```
+from data import personnel
+from loader import Loader
+
+
+stock = Loader(model="stock")
+```
+
+It is best if, before executing the script to see which error appears, you give first a look at your code and try to identify which changes you need to apply. Some general things we know before-hand are:
+
+- The stock is now a list of warehouses. You will have to iterate first each warehouse and then their respective `stock` list to perform operations such as listing or searching items.
+
+- The warehouses have the methods `occupancy()` and `search()`, use them when you can.
+
+- Dictionaries use the square-bracket notation while objects use the dot notation. Since the data we use now are objects you will have to change all the references to the properties of the items and employees.
+
+  > You will see this will make some parts of the code more readable as you transform notations like `categories[item["category"]]` into `categories[item.category]`.
+
+- The users will receive a different greeting depending on whether they are guest users or employees. This means that, once the user enters the name, the program should search into the personnel tree to find if there is such a user. If not, then it should create a new instance of the User class with the given name.
+
+  > It may be more effective to store the user object in the global scope rather than the `user_name` and `is_authenticated` properties separately.
+
+- The properties `_name` and `__password` of the user object should not be used in your main script. Use `is_authenticated`, `authenticate()` and `is_named()` instead.

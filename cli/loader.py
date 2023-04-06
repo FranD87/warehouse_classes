@@ -2,7 +2,6 @@
 
 from data import personnel as employees
 from data import stock as items
-from classes import Warehouse, Item, User, Employee
 
 
 class MissingClassError(Exception):
@@ -67,4 +66,3 @@ class Loader:
 
     def __iter__(self, *args, **kwargs):
         """Iterate through the objects."""
-        yield from self.objects
