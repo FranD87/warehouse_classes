@@ -1,6 +1,5 @@
-from classes import Warehouse
-from classes import User
-from classes import Employee
+from classes import Warehouse, User, Employee
+
 from data import stock, personnel
 # from loader import *
 
