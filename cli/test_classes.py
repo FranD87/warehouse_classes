@@ -98,18 +98,18 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.user.bye(), "Thank you for your visit, John")
 
     def test_check_user(self):
-        staff_db = [{"user_name": "Alice"}, {"user_name": "Bob", "head_of": [{"user_name": "Charlie"}]}]
-        self.assertEqual(User.check_user(staff_db, "Charlie"), {"user_name": "Charlie"})
+        staff_db = [{"user_name": "Jeremy"}, {"user_name": "bobby", "head_of": [{"user_name": "Marc"}]}]
+        self.assertEqual(User.check_user(staff_db, "Matthew"), {"user_name": "Matthew"})
         self.assertFalse(User.check_user(staff_db, "Dave"))
 
 class TestEmployee(unittest.TestCase):
 
     def setUp(self):
-        self.employee = Employee("JohnDoe", "mypassword")
+        self.employee = Employee("JohnDoe", "password")
 
     def test_authenticate(self):
-        self.assertTrue(self.employee.authenticate("mypassword"))
-        self.assertFalse(self.employee.authenticate("wrongpassword"))
+        self.assertTrue(self.employee.authenticate("password"))
+        self.assertFalse(self.employee.authenticate("password"))
 
     def test_greet(self):
         expected_greeting = f'Hello, {self.employee.get_user_name()}!\n If you experience a problem with the system, please contact technical support.'
