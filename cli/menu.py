@@ -1,4 +1,4 @@
-from classes import Warehouse, User, Employee
+from classes import Warehouse, User, Employee, Item
 from data import stock, personnel
 
 
@@ -246,8 +246,9 @@ def show_menu():
         else:
             print(f'\n"{option}" option not recognized\n')
 
-get_user()
-show_menu()
+if __name__ == '__main__':
+    get_user()
+    show_menu()
 
 
 
