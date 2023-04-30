@@ -2,7 +2,7 @@ import unittest
 from classes import *
 from datetime import datetime, timedelta
 from data import personnel, stock
-from unittest.mock import patch, MagicMock
+
 
 class TestItem(unittest.TestCase):
     def setUp(self):
