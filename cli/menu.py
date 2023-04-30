@@ -15,7 +15,7 @@ def get_user():
     # Greet the user
     print(user.greet())
 
-    # Create warehouses and add stock
+def add_stock():    # Create warehouses and add stock
     Warehouse.total_stock(stock)
 
     warehouse1 = Warehouse(1)
@@ -249,6 +249,7 @@ def show_menu():
 if __name__ == '__main__':
     get_user()
     show_menu()
+    add_stock()
 
 
 
