@@ -1,7 +1,6 @@
 from classes import Warehouse, User, Employee
-
 from data import stock, personnel
-# from loader import *
+
 
 
 # Get the username
