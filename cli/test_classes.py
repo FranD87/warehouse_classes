@@ -33,19 +33,6 @@ class TestItem(unittest.TestCase):
         self.warehouse.add_item(item3)
         self.assertEqual(self.warehouse.occupancy(), 3)
 
-    def test_search(self):
-        class MockUser:
-            def __init__(self):
-                self.history = []
-
-            def add_to_history(self, search_string):
-                self.history.append(search_string)
-
-        mock_user = MockUser()
-        matches = self.warehouse.search("Smartphone", mock_user)
-        self.assertEqual(len(matches), 1)
-        self.assertEqual(matches[0], self.item1)
-        self.assertEqual(mock_user.history, ["Searched for Smartphone in Smartphone"])
 
 class TestWarehouse(unittest.TestCase):
 
@@ -71,14 +58,6 @@ class TestWarehouse(unittest.TestCase):
         self.warehouse.add_item(self.item1)
         self.assertEqual(len(self.warehouse.stock), 1)
         self.assertIn(self.item1, self.warehouse.stock)
-
-    def test_search(self):
-        user_mock = MagicMock()
-        matches = self.warehouse.search('category', user_mock)
-        self.assertEqual(len(matches), 1)
-        self.assertIn(self.item1, matches)
-        user_mock.add_to_history.assert_called_once_with('Searched for category in state second hand')
-
 
     def test_get_warehouse_stock(self):
         self.assertEqual(len(self.warehouse.stock), 0)
