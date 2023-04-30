@@ -6,7 +6,7 @@ from collections import Counter
 
 
 # ''' Stock classes''
-class Item:
+class Item(ABC):
     def __init__(self, state: str, category: str, date_of_stock: str, warehouse = None):
         self.state = state
         self.category = category
